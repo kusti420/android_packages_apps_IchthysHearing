@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 IchthysOS. Licensed under the Apache License 2.0. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ichthys.hearing">
+
+    <!-- Signature permissions, granted because this app is platform-signed. The profile lives in
+         Settings.Global, which is what makes it device-wide. -->
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <application
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_hearing"
+        android:theme="@style/Theme.Hearing">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!-- Also surface it under Settings > Sound & vibration, where people look for it. -->
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.sound" />
+            <meta-data android:name="com.android.settings.title"
+                android:value="@string/app_name" />
+            <meta-data android:name="com.android.settings.summary"
+                android:value="@string/app_summary" />
+            <meta-data android:name="com.android.settings.icon"
+                android:resource="@drawable/ic_hearing" />
+        </activity>
+
+        <!-- Portrait-locked: a configuration change mid-test restarts the activity, which aborts
+             the run. Not worth saving and restoring a staircase for. -->
+        <activity
+            android:name=".TestActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name" />
+
+        <!-- Portrait-locked like the test: a rotation restarted it and reset the chosen
+             strength to 50 %. -->
+        <activity
+            android:name=".ResultsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:label="@string/results_title" />
+    </application>
+</manifest>

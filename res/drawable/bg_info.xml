@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 IchthysOS. Licensed under the Apache License 2.0. -->
+<!-- A hint box (not an error): the tonal colour. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <corners android:radius="16dp" />
+    <solid android:color="@color/hearing_tonal" />
+</shape>

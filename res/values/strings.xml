@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 IchthysOS. Licensed under the Apache License 2.0. -->
+<resources>
+    <string name="app_name">Hearing Check</string>
+    <string name="app_summary">Measure each ear and even out the sound of the whole device</string>
+
+    <!-- Home -->
+    <!-- IchthysOS: title of the card that holds main_intro. -->
+    <string name="main_intro_title">How it works</string>
+    <string name="main_intro">A short listening test measures how sensitive each ear is at six
+        frequencies. From that, the device builds a separate equaliser curve per ear and applies
+        it to media in any app: music, videos, podcasts.\n\nNotification, alarm and ringtone
+        sounds keep their usual sound, and phone calls are not affected: call audio goes straight
+        from the modem to the earpiece.</string>
+    <!-- IchthysOS: the large line of the status card. -->
+    <string name="status_headline_none">Not measured yet</string>
+    <string name="status_headline_on">Correction on</string>
+    <string name="status_headline_off">Correction off</string>
+    <string name="status_headline_even">Your ears are even</string>
+    <string name="status_no_profile">Put on headphones and run the check.</string>
+    <string name="status_flat">Both ears measured evenly. No correction needed.</string>
+    <string name="status_profile">Correcting a %1$d dB spread. Your %2$s ear at %3$s is the
+        weakest point.</string>
+    <!-- IchthysOS: the same read while the switch below is off. No dB figure: the spread the
+         status quotes depends on the strength, and nothing is being corrected. -->
+    <string name="status_profile_off">Nothing is being corrected. Your %1$s ear at %2$s is the
+        weakest point; turn the correction on to even out the rest against it.</string>
+    <!-- IchthysOS: on, but the strength is so low that the curve is flat (under 1 dB). -->
+    <string name="status_profile_zero">At this strength the correction stays under 1 dB, so you
+        won\'t hear a difference. Raise it to even out your %1$s ear at %2$s.</string>
+    <string name="label_enabled">Apply hearing compensation</string>
+    <string name="label_enabled_summary">Shapes every sound the mixer plays, not just one app.
+        While it is on, compressed audio is decoded in software rather than offloaded to the DSP,
+        which costs a little battery during long playback.</string>
+    <string name="label_strength">Correction strength</string>
+    <string name="label_strength_summary">100% corrects half of the measured difference, which is
+        the standard fitting rule. Lower is gentler.</string>
+    <string name="label_makeup">Make-up gain</string>
+    <string name="label_makeup_summary">The correction works by holding back the frequencies you
+        hear best, so it makes things quieter. This wins some of that back; a limiter stops it
+        clipping.</string>
+    <string name="action_run_test">Run hearing check</string>
+    <string name="action_retest">Measure again</string>
+    <string name="action_reset">Delete profile</string>
+    <string name="reset_title">Delete hearing profile?</string>
+    <string name="reset_message">The measurement and the curve built from it are removed, and the
+        correction is turned off. You can run the check again at any time.</string>
+
+    <!-- Test: setting the level -->
+    <string name="setup_title">Before you start</string>
+    <string name="setup_body">Put on headphones — the two ears are tested separately, so
+        loudspeakers cannot be used.\n\nFind somewhere quiet. Background noise masks the quiet
+        tones and will make your hearing look worse than it is.</string>
+    <string name="setup_level_title">Set a comfortable level</string>
+    <string name="setup_level_body">Play the reference tone and use the volume keys until it is
+        clearly audible but comfortable. Everything in the test is measured against this level,
+        and no tone will ever be louder than 15 dB above it.\n\nOnce the test starts, leave the
+        volume alone.</string>
+    <string name="action_play_tone">Play reference tone</string>
+    <string name="action_stop_tone">Stop tone</string>
+    <string name="action_start">Start the test</string>
+    <!-- IchthysOS: the test refuses to run on the loudspeaker. -->
+    <string name="setup_no_headphones">Connect headphones to start. The test can\'t run on the
+        phone\'s speaker.</string>
+    <string name="error_headphones_lost">Headphones disconnected, so the test stopped. Nothing was
+        saved.</string>
+
+    <!-- Test: running -->
+    <string name="run_body">Press the button every time you hear a tone, however faint — if you
+        think you might have heard something, press.\n\nSome of the tones are very quiet and some
+        are silent on purpose. Long gaps are normal.</string>
+    <string name="action_i_hear_it">I hear it</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="testing_ear">Testing: %1$s</string>
+    <string name="ear_left">left</string>
+    <string name="ear_right">right</string>
+    <string name="ear_left_title">Left ear</string>
+    <string name="ear_right_title">Right ear</string>
+
+    <!-- Results -->
+    <string name="results_title">What the test found</string>
+    <!-- IchthysOS: the chart's scale is now labelled relative to the comfortable level (0). -->
+    <string name="results_audiogram_caption">Higher is better: the higher a point, the quieter the
+        tone you could still hear. Blue crosses are your left ear, red circles your right. The
+        scale is in dB against the level you set as comfortable (0), not clinical dB HL. Nothing
+        here is calibrated equipment.</string>
+    <string name="results_curve_title">The correction</string>
+    <!-- IchthysOS: Apply also sets a make-up gain (a boost), so "cannot distort" was not true of
+         what gets applied. -->
+    <string name="results_curve_caption">How each ear will be equalised. The curve only pulls
+        bands down, never up. Applying it also adds back some overall loudness (make-up gain,
+        adjustable later on the home screen), with a limiter to stop that from clipping.</string>
+    <string name="summary_spread">Your thresholds span %1$d dB, with %2$s the hardest for you to
+        hear.</string>
+    <string name="summary_asymmetry">Your ears differ by %1$d dB at %2$s. That gap is what pulls
+        the stereo image off centre, and it is what the per-ear correction fixes.</string>
+    <string name="warning_volume_changed">The media volume changed during the test, so the
+        thresholds are measured against two different levels. Worth running again.</string>
+    <string name="warning_false_positives">You answered %1$d of %2$d silent trials. Enough of
+        those means the results read better than your hearing really is — worth running again,
+        pressing only when you are fairly sure.</string>
+    <string name="action_apply">Apply</string>
+    <string name="action_discard">Discard</string>
+    <string name="applied">Hearing compensation applied</string>
+    <string name="error_no_results">No results to show</string>
+
+    <!-- Shared -->
+    <string name="percent_format">%1$d%%</string>
+    <string name="db_format">%1$d dB</string>
+</resources>

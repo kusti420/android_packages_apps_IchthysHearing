@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 IchthysOS. Licensed under the Apache License 2.0. -->
+<resources>
+    <!-- IchthysOS: the app theme. Same DayNight base as before; it only adds the Monet accent to
+         the stock widgets (switch, sliders, progress) so they match the buttons. -->
+    <style name="Theme.Hearing" parent="@android:style/Theme.DeviceDefault.DayNight">
+        <item name="android:colorAccent">@color/hearing_accent</item>
+        <item name="android:colorControlActivated">@color/hearing_accent</item>
+    </style>
+
+    <!-- IchthysOS: every text style sets its colour. A TextView without one falls back to
+         textAppearanceSmall, which is textColorSecondary, and Caption used to dim that again with
+         alpha 0.7: grey on black, hard to read. -->
+    <style name="SectionTitle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/hearing_text_primary</item>
+        <item name="android:paddingTop">24dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <!-- A title inside a card. -->
+    <style name="CardTitle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/hearing_text_primary</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <!-- A setting's name (switch, sliders). -->
+    <style name="RowTitle">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/hearing_text_primary</item>
+    </style>
+
+    <!-- A slider's current value, next to its name. -->
+    <style name="RowValue">
+        <item name="android:textSize">17sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/hearing_accent</item>
+        <item name="android:fontFeatureSettings">tnum</item>
+    </style>
+
+    <style name="Caption">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/hearing_text_secondary</item>
+        <item name="android:lineSpacingMultiplier">1.2</item>
+    </style>
+
+    <style name="Body">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/hearing_text_primary</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <!-- A rounded surface that groups related content. -->
+    <style name="Card">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:background">@drawable/bg_card</item>
+    </style>
+
+    <style name="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginVertical">12dp</item>
+        <item name="android:background">@color/hearing_divider</item>
+    </style>
+
+    <!-- Buttons: pill shapes, 56 dp tall, sentence case. -->
+    <style name="Button" parent="@android:style/Widget.DeviceDefault.Button">
+        <item name="android:minHeight">56dp</item>
+        <item name="android:paddingHorizontal">24dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:elevation">0dp</item>
+    </style>
+
+    <style name="Button.Filled">
+        <item name="android:background">@drawable/bg_button_filled</item>
+        <item name="android:textColor">@color/hearing_button_text_states</item>
+    </style>
+
+    <style name="Button.Tonal">
+        <item name="android:background">@drawable/bg_button_tonal</item>
+        <item name="android:textColor">@color/hearing_on_tonal</item>
+    </style>
+
+    <style name="Button.Text">
+        <item name="android:background">@drawable/bg_button_text</item>
+        <item name="android:textColor">@color/hearing_accent</item>
+    </style>
+
+    <style name="Button.Destructive">
+        <item name="android:background">@drawable/bg_button_text</item>
+        <item name="android:textColor">@color/hearing_destructive</item>
+    </style>
+
+    <!-- Ear colour legend under the charts. -->
+    <style name="LegendLabel">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/hearing_text_secondary</item>
+        <item name="android:layout_marginStart">6dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+    </style>
+</resources>

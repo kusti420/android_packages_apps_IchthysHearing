@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 IchthysOS. Licensed under the Apache License 2.0. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <!-- Phase 1: headphones on, level set. -->
+    <ScrollView
+        android:id="@+id/setup_pane"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="24dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:accessibilityHeading="true"
+                android:text="@string/setup_title"
+                style="@style/SectionTitle"
+                android:paddingTop="0dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/setup_body"
+                style="@style/Body" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:accessibilityHeading="true"
+                android:text="@string/setup_level_title"
+                style="@style/SectionTitle" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/setup_level_body"
+                style="@style/Body" />
+
+            <Button
+                android:id="@+id/reference_tone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/action_play_tone"
+                style="@style/Button.Tonal" />
+
+            <!-- IchthysOS: shown (and Start disabled) while no headphones are connected. -->
+            <TextView
+                android:id="@+id/headphones_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:padding="16dp"
+                android:background="@drawable/bg_info"
+                android:textColor="@color/hearing_on_tonal"
+                android:accessibilityLiveRegion="polite"
+                android:text="@string/setup_no_headphones"
+                android:visibility="gone"
+                style="@style/Body" />
+
+            <Button
+                android:id="@+id/start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/action_start"
+                style="@style/Button.Filled" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Phase 2: the beeps. Nothing on this screen may change when a tone plays — a visual cue
+         would be answered instead of the tone. -->
+    <LinearLayout
+        android:id="@+id/run_pane"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/ear_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/hearing_text_primary"
+            android:gravity="center_horizontal"
+            android:paddingTop="8dp" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:progressTint="@color/hearing_accent"
+            android:progressBackgroundTint="@color/hearing_divider" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/run_body"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            style="@style/Body" />
+
+        <Button
+            android:id="@+id/respond"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_respond"
+            android:textColor="@color/hearing_on_accent"
+            android:textSize="26sp"
+            android:fontFamily="sans-serif-medium"
+            android:textAllCaps="false"
+            android:stateListAnimator="@null"
+            android:text="@string/action_i_hear_it" />
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/action_cancel"
+            style="@style/Button.Text" />
+    </LinearLayout>
+</FrameLayout>

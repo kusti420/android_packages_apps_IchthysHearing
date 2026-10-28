@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 IchthysOS. Licensed under the Apache License 2.0. -->
+<!-- IchthysOS: home screen as cards. A status card on top says what is in force, the profile
+     cards (curve, settings) only exist once there is a measurement, then the actions, then how it
+     works. Delete profile is hidden while there is nothing to delete. -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="24dp">
+
+        <!-- Status -->
+        <LinearLayout
+            android:id="@+id/hero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:background="@drawable/bg_hero">
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_hearing"
+                android:tint="@color/hearing_on_hero"
+                android:importantForAccessibility="no" />
+
+            <TextView
+                android:id="@+id/status_headline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textSize="26sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/hearing_on_hero"
+                android:accessibilityHeading="true" />
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="16sp"
+                android:lineSpacingMultiplier="1.25"
+                android:textColor="@color/hearing_on_hero" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/profile_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <!-- The curve in force -->
+            <LinearLayout style="@style/Card">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/results_curve_title"
+                    android:accessibilityHeading="true"
+                    style="@style/CardTitle" />
+                <com.ichthys.hearing.EqCurveView
+                    android:id="@+id/curve"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_marginTop="4dp" />
+                <include layout="@layout/legend_ears" />
+            </LinearLayout>
+
+            <!-- Controls -->
+            <LinearLayout style="@style/Card"
+                android:paddingVertical="12dp">
+
+                <!-- The whole row toggles the switch; the switch stays the accessible control. -->
+                <LinearLayout
+                    android:id="@+id/enabled_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="8dp"
+                    android:background="@drawable/bg_row"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:importantForAccessibility="no">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/label_enabled"
+                            style="@style/RowTitle" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/label_enabled_summary"
+                            style="@style/Caption" />
+                    </LinearLayout>
+                    <Switch
+                        android:id="@+id/switch_enabled"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:contentDescription="@string/label_enabled" />
+                </LinearLayout>
+
+                <View style="@style/Divider" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/label_strength"
+                        style="@style/RowTitle" />
+                    <TextView
+                        android:id="@+id/strength_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/RowValue" />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/label_strength_summary"
+                    style="@style/Caption" />
+                <SeekBar
+                    android:id="@+id/seek_strength"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="-16dp"
+                    android:paddingVertical="16dp"
+                    android:contentDescription="@string/label_strength" />
+
+                <View style="@style/Divider" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/label_makeup"
+                        style="@style/RowTitle" />
+                    <TextView
+                        android:id="@+id/makeup_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/RowValue" />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/label_makeup_summary"
+                    style="@style/Caption" />
+                <SeekBar
+                    android:id="@+id/seek_makeup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="-16dp"
+                    android:paddingVertical="16dp"
+                    android:contentDescription="@string/label_makeup" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/run_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/action_run_test"
+            style="@style/Button.Filled" />
+
+        <Button
+            android:id="@+id/reset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/action_reset"
+            android:visibility="gone"
+            style="@style/Button.Destructive" />
+
+        <!-- How it works -->
+        <LinearLayout style="@style/Card"
+            android:layout_marginTop="24dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/main_intro_title"
+                android:accessibilityHeading="true"
+                style="@style/CardTitle" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/main_intro"
+                style="@style/Caption" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 IchthysOS. Licensed under the Apache License 2.0. -->
+<!-- IchthysOS: the app's colours, taken from the system (Monet) palette so the screens follow the
+     wallpaper/theme accent like Settings does. Every text colour here is fully opaque and picked
+     for contrast on its own surface; nothing is dimmed with alpha. values-night has the dark set. -->
+<resources>
+    <color name="hearing_text_primary">@android:color/system_neutral1_900</color>
+    <color name="hearing_text_secondary">@android:color/system_neutral2_700</color>
+
+    <!-- Cards on the window background. -->
+    <color name="hearing_card">@android:color/system_neutral2_100</color>
+    <color name="hearing_divider">@android:color/system_neutral2_200</color>
+
+    <!-- The status card at the top of the home screen. -->
+    <color name="hearing_hero">@android:color/system_accent1_100</color>
+    <color name="hearing_on_hero">@android:color/system_accent1_900</color>
+
+    <!-- Filled buttons and the slider values. -->
+    <color name="hearing_accent">@android:color/system_accent1_600</color>
+    <color name="hearing_on_accent">@android:color/system_accent1_0</color>
+
+    <!-- Secondary (tonal) buttons. -->
+    <color name="hearing_tonal">@android:color/system_accent2_100</color>
+    <color name="hearing_on_tonal">@android:color/system_accent2_900</color>
+
+    <!-- Delete, and the "worth running again" warning. Material 3 baseline error roles. -->
+    <color name="hearing_destructive">#FFBA1A1A</color>
+    <color name="hearing_warning">#FFFFDAD6</color>
+    <color name="hearing_on_warning">#FF410002</color>
+</resources>

@@ -1,0 +1,20 @@
+// IchthysOS Hearing Check: measures each ear and drives the device-wide per-ear corrective EQ
+// (libichthyshearing, attached to the output mix by IchthysHearingController).
+package {
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
+
+android_app {
+    name: "IchthysHearing",
+    srcs: ["src/**/*.java"],
+    resource_dirs: ["res"],
+    manifest: "AndroidManifest.xml",
+    // Reads and writes Settings.Global keys that are @hide, so it needs the platform API surface
+    // and the platform signature that makes WRITE_SECURE_SETTINGS grantable.
+    platform_apis: true,
+    certificate: "platform",
+    system_ext_specific: true,
+    optimize: {
+        enabled: false,
+    },
+}
